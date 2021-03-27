@@ -1,0 +1,68 @@
+@model IEnumerable<MVCApp.Models.SocieteModel>
+
+@{
+    ViewBag.Title = "Societe";
+}
+
+<p>
+    <h3>Liste des Sociétés</h3>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SocieteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DetailSociete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SocieteAdresse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocieteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetailSociete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocieteAdresse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPerson)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "UpdateSocieteRec", new { id = item.SocieteId })
+                @Html.ActionLink("Delete", "DeleteSocieteRec", new { id = item.SocieteId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Create New", "CreateSocieteRec")
+            </th>
+            <th>
+                @Html.ActionLink("Export to Csv", "ExportSocieteListToCSV")
+            </th>
+            <th>
+                @Html.ActionLink("Import from csv", "ImportSocieteListFromCSV")
+            </th>
+            <th>
+                @Html.ActionLink("Refresh", "ViewSociete")
+            </th>
+            <th></th>
+        </tr>
+</table>
